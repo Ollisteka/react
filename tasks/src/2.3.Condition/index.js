@@ -16,19 +16,25 @@ import './styles.css';
 
 
 function renderPosts(posts) {
-  //<div className="emptyPosts">Нет откликов</div>
-  //<div className="singlePost">Единственный отклик</div>
+  if (posts.length == 0)
+    return <div className="emptyPosts">Нет откликов</div>
+  if (posts.length == 1)
+    return <div className="singlePost">Единственный отклик</div>
   return (
     <div className="posts">Отклики в количестве {posts.length}</div>
   );
 }
 
 function renderLot(name, description, tags) {
+  if (name === "")
+    name = "Неизвестный предмет";
+  let descriptionTag = null;
+  
   return (
     <div className="lot">
       <div className="lotName">{name}</div>
-      <div className="lotDescription">{description}</div>
-      {renderTags(tags)}
+      {description && <div className="lotDescription">{description}</div>}
+      {tags.length > 0 && renderTags(tags)}
     </div>
   );
 }
@@ -45,5 +51,9 @@ ReactDom.render(
   <div className="page">
     {renderLot('', '', [])}
     {renderPosts([])}
+    {renderLot('Best lot', 'Reccomended!', [])}
+    {renderPosts([1,2,3,4])}
+    {renderLot('Another lot', 'Please by!', ["best", "of", "the", "best"])}
+    {renderPosts(["Post"])}
   </div>,
   document.getElementById('app'));

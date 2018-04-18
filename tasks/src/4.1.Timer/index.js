@@ -8,13 +8,16 @@ import './styles.css';
     2. Позаботься об освобождении ресурсов в случае удаления элемента.
  */
 
+const ONE_SECOND = 1000;
 
 class Timer extends React.Component {
   constructor() {
     super();
     this.state = {
       localTime: new Date(),
+      intervalId: 0
     };
+
   }
 
   render() {
@@ -23,6 +26,18 @@ class Timer extends React.Component {
         {this.state.localTime.toLocaleTimeString()}
       </div>
     );
+  }
+
+  decreaseTime = () => {
+    this.setState({ localTime: new Date(this.state.localTime - ONE_SECOND) });
+  }
+
+  componentDidMount() {
+    this.setState({ intervalId: setInterval(this.decreaseTime, ONE_SECOND) });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
   }
 }
 

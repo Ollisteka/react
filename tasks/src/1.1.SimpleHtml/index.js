@@ -11,8 +11,8 @@ import './styles.css';
         - <br> → <br/>
         - <input> → <input/>
     - Переименование некоторых атрибутов:
-        - class → className
-        - for → htmlFor
+        - className → className
+        - htmlFor → htmlhtmlFor
         - checked → defaultChecked
         - value → defaultValue
     - {} и "" для передачи значений
@@ -27,7 +27,44 @@ import './styles.css';
 
 
 ReactDom.render(
-  <form>
-  </form>,
+    <htmlForm className="htmlForm">
+    <h1>Добавление отзыва</h1>
+    <div>
+      <div className={"row"}>
+        <div className={"caption"}>
+          <label htmlFor="name">Имя</label>
+        </div>
+        <input id="name" type="text" size="39"/>
+      </div>
+      <div className={"row"}>
+        <div className={"caption"}>
+          <label htmlFor="mail">Почта</label>
+        </div>
+        <input id="mail" type="email" size="39"/>
+      </div>
+      <div className="row">
+        <div className="caption">
+          <label htmlFor="city">Город</label>
+        </div>
+        <input id="city" type="city" size="39" defaultValue="Екатеринбург"/>
+      </div>
+      <div className="row">
+        <div className="caption">
+          <label htmlFor="comment">Отзыв</label>
+        </div>
+        <textarea id="comment" cols="40"></textarea>
+      </div>
+      <div className="row">
+        <div className="caption">
+          <label htmlFor="agreement">Согласие</label>
+        </div>
+        <input id="agreement" type="checkbox" defaultChecked />
+      </div>
+      <br/>
+      <div className="row" style={{marginTop: 10, width: 400, textAlign: "center"}}>
+        <input type="button" className="button" defaultValue="Отправить" />
+      </div>
+    </div>
+  </htmlForm>,
   document.getElementById('app')
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 
@@ -22,29 +22,39 @@ import './styles.css';
 // Эта строка нужна, чтобы ESLint не сильно ругался, пока не написаны PropTypes.
 /*eslint react/prop-types: "warn" */
 
-
-function renderPost(post) {
+function Post(props){
   return (
     <div className="post">
       <div className="postHeader">
-        <span className="postAuthor">{post.author}</span><br />
-        <span className="postTime">{post.time}</span>
+        <span className="postAuthor">{props.author}</span><br />
+        <span className="postTime">{props.time}</span>
       </div>
-      <div className="postMessage">{post.message}</div>
+      <div className="postMessage">{props.message || props.children}</div>
     </div>
   );
 }
 
+Post.propTypes = {
+        author: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+        message: PropTypes.string,
+        children: PropTypes.string,
+        onFire: PropTypes.func
+}
+
+Post.defaultProps = {
+  author: 'Неизвестный автор'
+}
 
 ReactDom.render(
   <div className="page">
     <div className="posts">
-      {renderPost({
-        author: 'Милая девушка',
-        time: '3 часа назад',
-        message: 'Можно использовать для выпекания чизкейков :)'
-      }
-      )}
+      <Post
+        author='Милая девушка'
+        time='3 часа назад'
+        message='Можно использовать для выпекания чизкейков :)'/>
+      <Post time='Сутки назад' message='Полная фигня'/>
+      <Post author="LittlePony" time="2 дня назад">Hello, world!</Post>
     </div>
   </div>,
   document.getElementById('app'));

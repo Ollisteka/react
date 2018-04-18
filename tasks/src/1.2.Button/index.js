@@ -17,6 +17,7 @@ ReactDom.render(
         type="button"
         className="button"
         value="Отправить"
+        onClick={() => alert("Отправлено")}
       />
     </div>
   </div>,

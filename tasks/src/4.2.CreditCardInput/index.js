@@ -33,6 +33,8 @@ class CreditCardInputWithRestore extends React.Component {
     this.restoreFromApi();
   }
 
+
+
   render() {
     return (
       <CreditCardInput
@@ -53,6 +55,13 @@ class CreditCardInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: props.value };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+
+    if (prevState.value == '0000 0000 0000 0000')
+      return { value: nextProps.value }
+    return null;
   }
 
   render() {
