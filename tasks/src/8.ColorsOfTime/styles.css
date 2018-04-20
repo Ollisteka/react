@@ -18,7 +18,7 @@ h3 {
 
 .page {
   margin: auto;
-  width: 250px;
+  width: 300px;
 }
 
 .card {
@@ -39,33 +39,68 @@ h3 {
   color: #707070;
 }
 
-.blue {
-  color: blue;
+.red {
+  color: hsl(0, 100%, 30%);
 }
 
-.red {
-  color: red;
+.redBack {
+  background-color: hsl(0, 70%, 90%);
+}
+
+.yellow {
+  color: hsl(60, 100%, 30%);
+}
+
+.yellowBack {
+  background-color: hsl(60, 70%, 90%);
 }
 
 .green {
-  color: green;
+  color: hsl(120, 100%, 30%);
 }
 
-.actionButton {
-  background: linear-gradient(#2899ea, #167ac1);
-  color: #fff;
+.greenBack {
+  background-color: hsl(120, 70%, 90%);
+}
+
+.cyan {
+  color: hsl(180, 100%, 30%);
+}
+
+.cyanBack {
+  background-color: hsl(180, 70%, 90%);
+}
+
+.blue {
+  color: hsl(240, 100%, 30%);
+}
+
+.blueBack {
+  background-color: hsl(240, 70%, 90%);
+}
+
+.magenta {
+  color: hsl(300, 100%, 30%);
+}
+
+.magentaBack {
+  background-color: hsl(300, 70%, 90%);
+}
+
+.button {
   height: 34px;
   border-radius: 2px 2px 2px 2px;
   padding: 0 15px;
-  border: 0;
+  margin: 5px;
+  border: solid 2px;
 }
 
-.actionButton:hover {
-  background: linear-gradient(#0087d5, #167ac1);
+.button:hover {
   cursor: pointer;
 }
 
-.buttonContainer {
-  margin-top: 20px;
+.block {
+  margin-top: 30px;
   text-align: center;
+  margin-bottom: 30px;
 }

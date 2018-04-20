@@ -3,16 +3,15 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-
 export default function TimeDisplay({ time, color }) {
   return (
     <div className={`time ${color || ''}`}>
-      {time.toLocaleTimeString()}
+      {time ? time.toLocaleTimeString() : '--:--:--'}
     </div>
   );
 }
 
 TimeDisplay.propTypes = {
-  time: PropTypes.object.isRequired,
+  time: PropTypes.object,
   color: PropTypes.string
-}
+};

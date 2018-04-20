@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-
 /**
     1. Переделай renderPost в функциональный компонент Post
    
@@ -17,7 +16,6 @@ import './styles.css';
    
     4. Переделай компонент так, чтобы message передавался через props.children.
  */
-
 
 // Эта строка нужна, чтобы ESLint не сильно ругался, пока не написаны PropTypes.
 /*eslint react/prop-types: "warn" */
@@ -57,12 +55,12 @@ ReactDom.render(
       <Post author="LittlePony" time="2 дня назад">Hello, world!</Post>
     </div>
   </div>,
-  document.getElementById('app'));
-
+  document.getElementById('app')
+);
 
 /**
     Подсказки к 1:
-    - {renderMyComponent({a: 1, b: 'some'})} → <MyComponent a={1}, b="some">
+    - {renderMyComponent({a: 1, b: 'some'})} → <MyComponent a={1} b="some">
     - Первый аргумент функции компонента обычно называется props
    
     Подсказки к 2:
@@ -79,7 +77,9 @@ ReactDom.render(
       }
    
     Подсказки к 4:
-    - <MyComponent>Значение</MyComponent>
-    - const value = props.children;
-    - children: PropTypes.string,
+    - Дети — это вложенные узлы тэга.
+      Пример с одним ребенком: <MyComponent>Значение</MyComponent>
+    - Дети попадают в props в виде массива props.children.
+    - При использовании надо добавлять в propTypes компонента: 
+          children: PropTypes.node
  */

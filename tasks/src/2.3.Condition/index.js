@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import './styles.css';
 
-
 /**
     Не выделяя дополнительных методов
     1. Сделай так, чтобы renderPosts возвращал:
@@ -13,7 +12,6 @@ import './styles.css';
     3. Если description лота пустое или неопределено, то тэг с классом lotDescription должен отсутствовать
     4. Если у лота нет тэгов, то div с классом lotTags должен отсутствовать
  */
-
 
 function renderPosts(posts) {
   if (posts.length == 0)
@@ -41,11 +39,8 @@ function renderLot(name, description, tags) {
 
 function renderTags(tags) {
   const content = tags.join(', ');
-  return (
-    <div className="lotTags">{content}</div>
-  );
+  return <div className="lotTags">{content}</div>;
 }
-
 
 ReactDom.render(
   <div className="page">
@@ -56,4 +51,5 @@ ReactDom.render(
     {renderLot('Another lot', 'Please by!', ["best", "of", "the", "best"])}
     {renderPosts(["Post"])}
   </div>,
-  document.getElementById('app'));
+  document.getElementById('app')
+);

@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import './styles.css';
 
-
 /**
      1. Разбери ручные переборы массивов в верстке.
         Для постов используй map без циклов, для авторов цикл for без map.
     
-     2. Добавь в post поле id и присвой каждому полю уникальный строковый идентификатор.
+     2. Посмотри ошибки в Chrome DevTools: React должен требовать наличия атрибутов key.
+        Добавь в post поле id и присвой каждому полю уникальный строковый идентификатор.
         Используй id в качестве значения key в основном тэге поста и основном тэге автора.
  */
-
 
 const posts = [
   {
@@ -30,7 +29,7 @@ const posts = [
     author: 'Скупец',
     time: 'вчера',
     message: 'Цену-то загнули!'
-  },
+  }
 ];
 
 function renderAllPosts(posts){
@@ -41,7 +40,8 @@ function renderPost(post) {
   return (
     <div key={post.id} className="post">
       <div className="postHeader">
-        <span className="postAuthor">{post.author}</span><br />
+        <span className="postAuthor">{post.author}</span>
+        <br />
         <span className="postTime">{post.time}</span>
       </div>
       <div className="postMessage">{post.message}</div>
@@ -62,7 +62,6 @@ function renderAuthors(posts) {
   );
 }
 
-
 ReactDom.render(
   <div className="page">
     <div className="posts">
@@ -70,8 +69,8 @@ ReactDom.render(
     </div>
     {renderAuthors(posts)}
   </div>,
-  document.getElementById('app'));
-
+  document.getElementById('app')
+);
 
 /**
      Подсказки:
