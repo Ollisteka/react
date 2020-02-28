@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
-import 'regenerator-runtime/runtime';
+import 'regenerator-runtime';
 import './styles.css';
 import Api from './Api';
 import CreditCardNumber from './CreditCardNumber';
